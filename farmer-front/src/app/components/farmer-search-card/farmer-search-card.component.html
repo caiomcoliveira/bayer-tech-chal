@@ -1,0 +1,16 @@
+<mat-card class="farmer-card">
+  <mat-card-header>
+    <mat-card-title>Search a Farmer</mat-card-title>
+    <mat-card-subtitle>by Document Number or Name</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field class="example-full-width">
+      <mat-label>Name or Doc#</mat-label>
+      <input matInput placeholder="Alex" (keyup.enter)="search()">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <p>
+      {{searchResult | json }}
+    </p>
+  </mat-card-content>
+</mat-card>
