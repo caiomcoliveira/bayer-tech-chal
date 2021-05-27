@@ -12,10 +12,6 @@ import { FarmerSearchAbstractProvider } from '../abstracts/FarmerSearchAbstractP
 export class FarmerSearchProvider implements FarmerSearchAbstractProvider {
 
   public searchFarmers(params: FarmerSearchParams): Promise<Farmer[]> {
-    if(params.query == 't'){
-      return of([]).toPromise();
-    }
-    return of([mockFarmer1]).toPromise();
     return this.httpClient.get<Farmer[]>('url').toPromise();
   }
 

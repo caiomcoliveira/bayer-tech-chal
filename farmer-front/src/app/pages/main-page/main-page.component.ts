@@ -13,7 +13,7 @@ export class MainPageComponent {
   constructor(public myFarmerSearchProvider: FarmerSearchProvider) { }
 
 
-  public mySelectedFarmer(event: Farmer[]): void {
+  public mySelectedFarmer(event: Farmer): void {
     console.log(event);
   }
 

@@ -10,7 +10,7 @@
   <mat-card-content>
     <mat-form-field>
       <mat-label>Name or Doc#</mat-label>
-      <input matInput placeholder="Alex" (keyup.enter)="search()" [(ngModel)]="searchQuery">
+      <input id="search-input" matInput placeholder="Alex" (keyup.enter)="search()" [(ngModel)]="searchQuery">
       <mat-icon matSuffix (click)="search()" style="cursor: pointer;">search</mat-icon>
     </mat-form-field>
     <ng-container *ngIf="!noResultsFound; else noResult">
@@ -26,12 +26,12 @@
         </mat-form-field>
         <mat-form-field>
           <mat-label>Address</mat-label>
-          <input matInput [value]="formatedAdress(this.searchResult)" readonly>
+          <input matInput [value]="formattedAddress(this.searchResult)" readonly>
         </mat-form-field>
       </section>
     </ng-container>
     <ng-template #noResult>
-      <h2>No results found.</h2>
+      <h2 id="no-results-found">No results found.</h2>
     </ng-template>
   </mat-card-content>
 </mat-card>

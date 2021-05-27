@@ -24,19 +24,23 @@ export class FarmerSearchCardComponent {
     this.searchResult = null;
     this.farmerSearchAbstractProvider.searchFarmers({ query: this.searchQuery }).then(
       (r) => {
-        if(r.length > 0){
+        if (r.length > 0) {
           this.searchResult = r[0];
         }
         else {
           this.noResultsFound = true;
         }
-        this.searchQuery = '';          
+        this.searchQuery = '';
         this.onPartnerSelectedEvent.emit(this.searchResult);
+      },
+      (e) => {
+        this.searchQuery = '';
+        this.noResultsFound = true;
       }
     );
   }
 
-  public formatedAdress(farmer: Farmer): string {
+  public formattedAddress(farmer: Farmer): string {
     return `${farmer.address.address} , ${farmer.address.street} (${farmer.address.country} - ${farmer.address.state})`;
   }
 

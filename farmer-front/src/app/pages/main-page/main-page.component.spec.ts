@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FarmerSearchCardComponent } from 'src/app/components/farmer-search-card/farmer-search-card.component';
+import { mockFarmer1 } from 'src/app/mocks/mocks';
 
 import { MainPageComponent } from './main-page.component';
 
@@ -8,7 +10,7 @@ describe('MainPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainPageComponent ]
+      declarations: [ MainPageComponent, FarmerSearchCardComponent ]
     })
     .compileComponents();
   });
@@ -22,4 +24,8 @@ describe('MainPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Should call mySelectFarmer', ()=> {
+      component.mySelectedFarmer(mockFarmer1);
+  })
 });
