@@ -13,15 +13,24 @@ export class FarmerSearchCardComponent {
   @Input() farmerSearchAbstractProvider: FarmerSearchAbstractProvider;
   @Output() onPartnerSelectedEvent = new EventEmitter<Farmer>();
   public searchResult: Farmer;
-  public searchQuery: FarmerSearchParams;
+  public searchQuery: string;
+  public noResultsFound: boolean = false;
 
   constructor() { }
 
 
   public search(): void {
-    this.farmerSearchAbstractProvider.searchFarmers({ query: 'asd' }).then(
+    this.noResultsFound = false;
+    this.searchResult = null;
+    this.farmerSearchAbstractProvider.searchFarmers({ query: this.searchQuery }).then(
       (r) => {
-        this.searchResult = r.length > 0 ? r[0] : null;
+        if(r.length > 0){
+          this.searchResult = r[0];
+        }
+        else {
+          this.noResultsFound = true;
+        }
+        this.searchQuery = '';          
         this.onPartnerSelectedEvent.emit(this.searchResult);
       }
     );

@@ -1,29 +1,37 @@
 <mat-card class="farmer-card">
   <mat-card-header>
-    <mat-card-title>Search a Farmer</mat-card-title>
+    <mat-card-title class="header">
+      <img src="/assets/svgs/bayer-logo-2.svg" width="40px">
+      <span>
+        Search a Farmer</span>
+    </mat-card-title>
     <mat-card-subtitle>by Document Number or Name</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <mat-form-field>
       <mat-label>Name or Doc#</mat-label>
-      <input matInput placeholder="Alex" (keyup.enter)="search()">
-      <mat-icon matSuffix>search</mat-icon>
+      <input matInput placeholder="Alex" (keyup.enter)="search()" [(ngModel)]="searchQuery">
+      <mat-icon matSuffix (click)="search()" style="cursor: pointer;">search</mat-icon>
     </mat-form-field>
-    <section class="farmer-info" *ngIf="searchResult">
-      <h2>Farmer Information:</h2>
-      <mat-form-field style="width: 100%;">
-        <mat-label>Name</mat-label>
-        <input matInput value="{{searchResult.name}}" readonly>
-      </mat-form-field>
-      <mat-form-field style="width: 100%;">
-        <mat-label>Document</mat-label>
-        <input matInput value="{{searchResult.document.documentNumber}}" readonly>
-      </mat-form-field>
-      <mat-form-field style="width: 100%;">
-        <mat-label>Address</mat-label>
-        <input matInput [value]="formatedAdress(this.searchResult)" readonly>
-      </mat-form-field>
-
-    </section>
+    <ng-container *ngIf="!noResultsFound; else noResult">
+      <section class="farmer-info" *ngIf="searchResult">
+        <h2>Farmer Information:</h2>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput value="{{searchResult.name}}" readonly>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Document</mat-label>
+          <input matInput value="{{searchResult.document.documentNumber}}" readonly>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput [value]="formatedAdress(this.searchResult)" readonly>
+        </mat-form-field>
+      </section>
+    </ng-container>
+    <ng-template #noResult>
+      <h2>No results found.</h2>
+    </ng-template>
   </mat-card-content>
 </mat-card>

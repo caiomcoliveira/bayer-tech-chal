@@ -2,8 +2,17 @@
     width: 400px;
     background-color: rgb(255, 255, 255);
     color: black;
+    .header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+    }
     .farmer-info {
         transition: width 1s;
+        .mat-form-field {
+            width: 100%;
+        }
       
     }
 }
