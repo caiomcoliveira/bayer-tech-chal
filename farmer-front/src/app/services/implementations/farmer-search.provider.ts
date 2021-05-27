@@ -13,10 +13,16 @@ import { FarmerSearchAbstractProvider } from '../abstracts/FarmerSearchAbstractP
 export class FarmerSearchProvider implements FarmerSearchAbstractProvider {
 
   public readonly serviceUrl: string = `${environment.apiUrl}/farmers`
+  
+  constructor(private httpClient: HttpClient) { }
 
+  /**
+   * 
+   * @param params Parameters in which to search
+   * @returns a promise with a list of farmers
+   */
   public searchFarmers(params: FarmerSearchParams): Promise<Farmer[]> {
     return this.httpClient.get<Farmer[]>(this.serviceUrl, { params: { ...params } }).pipe(delay(1000)).toPromise();
   }
 
-  constructor(private httpClient: HttpClient) { }
 }
