@@ -58,4 +58,19 @@ const mockFarmer4 = {
     name: 'Karen Manager'
 }
 
-module.exports.allFarmers = [mockFarmer1,mockFarmer2,mockFarmer3,mockFarmer4];
+const mockFarmer5 = {
+    address: {
+        street: 'IDK street',
+        state: 'Para',
+        address: 'Apt 501',
+        country: 'BR',
+    },
+    document: {
+        documentNumber: '821.101.500-00',
+        documentType: 'F'
+    },
+    id: 4,
+    name: 'Alex Dev'
+}
+
+module.exports.allFarmers = [mockFarmer1,mockFarmer2,mockFarmer3,mockFarmer4, mockFarmer5];
