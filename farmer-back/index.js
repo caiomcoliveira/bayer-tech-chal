@@ -1,27 +1,27 @@
-const express = require('express')
-const cors = require('cors')
-const app = express()
-app.use(cors())
-const port = 3000
+const express = require('express');
+const cors = require('cors');
+const {
+    allFarmers
+} = require('./src/mocks/mock-farmers');
+
+const app = express();
+app.use(cors());
+const port = 3000;
+
+
 
 app.get('/api/farmers', (req, res) => {
-    res.send([{
-        address: {
-            street: 'One street',
-            state: 'Liquid State of Water',
-            address: '7th H20 Av.',
-            country: 'USA',
-        },
-        document: {
-            documentNumber: '123123',
-            documentType: 'F'
-        },
-        id: '1',
-        name: 'Caio'
-
-    }]);
+    try {
+        const search = req.query.search.toLowerCase();
+        const farmers = allFarmers.filter(
+            f => f.name.toLowerCase().includes(search) || f.document.documentNumber.includes(search)
+        );
+        res.send(farmers).status(200);
+    } catch (e) {
+        res.send(e).status(500);
+    }
 })
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Example app listening at http://localhost:${port} with CORS`);
 })
