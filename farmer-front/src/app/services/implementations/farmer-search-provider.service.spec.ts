@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { mockFarmer1 } from 'src/app/mocks/mocks';
@@ -10,6 +10,7 @@ describe('FarmerSearchProvider', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       providers: [HttpClient]
     });
     service = TestBed.inject(FarmerSearchProvider);

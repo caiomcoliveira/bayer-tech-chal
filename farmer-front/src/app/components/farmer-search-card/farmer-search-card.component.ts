@@ -36,6 +36,8 @@ export class FarmerSearchCardComponent {
       (e) => {
         this.searchQuery = '';
         this.noResultsFound = true;
+        this.onPartnerSelectedEvent.emit(this.searchResult);
+
       }
     );
   }
