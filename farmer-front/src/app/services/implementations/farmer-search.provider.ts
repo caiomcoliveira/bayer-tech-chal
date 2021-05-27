@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { mockFarmer1 } from 'src/app/mocks/mocks';
 import { Farmer } from 'src/app/models/Farmer';
 import { FarmerSearchParams } from 'src/app/models/FarmerSearchParams';
+import { environment } from 'src/environments/environment';
 import { FarmerSearchAbstractProvider } from '../abstracts/FarmerSearchAbstractProvider';
 
 @Injectable({
@@ -11,8 +12,10 @@ import { FarmerSearchAbstractProvider } from '../abstracts/FarmerSearchAbstractP
 })
 export class FarmerSearchProvider implements FarmerSearchAbstractProvider {
 
+  public readonly serviceUrl: string = `${environment.apiUrl}/farmers`
+
   public searchFarmers(params: FarmerSearchParams): Promise<Farmer[]> {
-    return this.httpClient.get<Farmer[]>('url').toPromise();
+    return this.httpClient.get<Farmer[]>(this.serviceUrl, { params: { ...params } }).toPromise();
   }
 
   constructor(private httpClient: HttpClient) { }
