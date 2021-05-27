@@ -14,8 +14,7 @@ export class FarmerSearchProvider implements FarmerSearchAbstractProvider {
   public searchFarmers(params: FarmerSearchParams): Promise<Farmer[]> {
     return of([mockFarmer1]).toPromise();
     return this.httpClient.get<Farmer[]>('url').toPromise();
-  };
+  }
 
-  
   constructor(private httpClient: HttpClient) { }
 }

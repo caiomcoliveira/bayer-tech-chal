@@ -7,16 +7,14 @@ import { FarmerSearchProvider } from 'src/app/services/implementations/farmer-se
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent {
 
 
   constructor(public myFarmerSearchProvider: FarmerSearchProvider) { }
 
-  ngOnInit(): void {
-  }
 
-
-  public mySelectedFarmer(event: Farmer[]){
+  public mySelectedFarmer(event: Farmer[]): void {
     console.log(event);
   }
+
 }

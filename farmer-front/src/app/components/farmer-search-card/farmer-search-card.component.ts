@@ -4,11 +4,11 @@ import { FarmerSearchParams } from 'src/app/models/FarmerSearchParams';
 import { FarmerSearchAbstractProvider } from 'src/app/services/abstracts/FarmerSearchAbstractProvider';
 
 @Component({
-  selector: 'farmer-search-card',
+  selector: 'app-farmer-search-card',
   templateUrl: './farmer-search-card.component.html',
   styleUrls: ['./farmer-search-card.component.scss']
 })
-export class FarmerSearchCardComponent implements OnInit {
+export class FarmerSearchCardComponent {
 
   @Input() farmerSearchAbstractProvider: FarmerSearchAbstractProvider;
   @Output() onPartnerSelectedEvent = new EventEmitter<Farmer>();
@@ -17,18 +17,18 @@ export class FarmerSearchCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    
-  }
 
   public search(): void {
-    this.farmerSearchAbstractProvider.searchFarmers({query: 'asd'}).then(
-      (r)=>{
-        this.searchResult = r.length > 0 ?  r[0] : null;
+    this.farmerSearchAbstractProvider.searchFarmers({ query: 'asd' }).then(
+      (r) => {
+        this.searchResult = r.length > 0 ? r[0] : null;
         this.onPartnerSelectedEvent.emit(this.searchResult);
       }
-    )
+    );
+  }
 
+  public formatedAdress(farmer: Farmer): string {
+    return `${farmer.address.address} , ${farmer.address.street} (${farmer.address.country} - ${farmer.address.state})`;
   }
 
 

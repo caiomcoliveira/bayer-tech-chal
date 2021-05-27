@@ -4,13 +4,26 @@
     <mat-card-subtitle>by Document Number or Name</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <mat-form-field class="example-full-width">
+    <mat-form-field>
       <mat-label>Name or Doc#</mat-label>
       <input matInput placeholder="Alex" (keyup.enter)="search()">
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
-    <p>
-      {{searchResult | json }}
-    </p>
+    <section class="farmer-info" *ngIf="searchResult">
+      <h2>Farmer Information:</h2>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Name</mat-label>
+        <input matInput value="{{searchResult.name}}" readonly>
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Document</mat-label>
+        <input matInput value="{{searchResult.document.documentNumber}}" readonly>
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Address</mat-label>
+        <input matInput [value]="formatedAdress(this.searchResult)" readonly>
+      </mat-form-field>
+
+    </section>
   </mat-card-content>
 </mat-card>
