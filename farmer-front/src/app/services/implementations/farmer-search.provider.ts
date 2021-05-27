@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { delay} from 'rxjs/operators';
 import { mockFarmer1 } from 'src/app/mocks/mocks';
 import { Farmer } from 'src/app/models/Farmer';
 import { FarmerSearchParams } from 'src/app/models/FarmerSearchParams';
@@ -15,7 +15,7 @@ export class FarmerSearchProvider implements FarmerSearchAbstractProvider {
   public readonly serviceUrl: string = `${environment.apiUrl}/farmers`
 
   public searchFarmers(params: FarmerSearchParams): Promise<Farmer[]> {
-    return this.httpClient.get<Farmer[]>(this.serviceUrl, { params: { ...params } }).toPromise();
+    return this.httpClient.get<Farmer[]>(this.serviceUrl, { params: { ...params } }).pipe(delay(1000)).toPromise();
   }
 
   constructor(private httpClient: HttpClient) { }

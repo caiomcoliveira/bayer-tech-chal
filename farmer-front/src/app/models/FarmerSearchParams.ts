@@ -1,3 +1,3 @@
 export interface FarmerSearchParams {
-    query: string;
+    search: string;
 }

@@ -57,7 +57,6 @@ describe('FarmerSearchCardComponent', () => {
     expect(component.noResultsFound).toBe(false);
     expect(component.searchResult).toBeDefined();
     expect(component.onPartnerSelectedEvent.emit).toHaveBeenCalled();
-    expect(component.searchQuery).toBe('');
 
   }));
 
@@ -74,7 +73,6 @@ describe('FarmerSearchCardComponent', () => {
     expect(component.noResultsFound).toBe(true);
     expect(component.searchResult).toBeFalsy();
     expect(component.onPartnerSelectedEvent.emit).toHaveBeenCalled();
-    expect(component.searchQuery).toBe('');
 
     fixture.detectChanges();
     const text = fixture.debugElement.query(By.css('#no-results-found')).nativeElement;
@@ -95,7 +93,6 @@ describe('FarmerSearchCardComponent', () => {
     expect(component.noResultsFound).toBe(true);
     expect(component.searchResult).toBeFalsy();
     expect(component.onPartnerSelectedEvent.emit).toHaveBeenCalled();
-    expect(component.searchQuery).toBe('');
 
     fixture.detectChanges();
     const text = fixture.debugElement.query(By.css('#no-results-found')).nativeElement;

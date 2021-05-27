@@ -1,4 +1,10 @@
 .farmer-card {
+    .mat-progress-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    position: relative;
     width: 400px;
     background-color: rgb(255, 255, 255);
     color: black;

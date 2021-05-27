@@ -15,6 +15,7 @@ export class FarmerSearchCardComponent {
   public searchResult: Farmer;
   public searchQuery: string;
   public noResultsFound: boolean = false;
+  public isLoading: boolean = false;
 
   constructor() { }
 
@@ -22,22 +23,22 @@ export class FarmerSearchCardComponent {
   public search(): void {
     this.noResultsFound = false;
     this.searchResult = null;
-    this.farmerSearchAbstractProvider.searchFarmers({ query: this.searchQuery }).then(
+    this.isLoading = true;
+    this.farmerSearchAbstractProvider.searchFarmers({ search: this.searchQuery }).then(
       (r) => {
+        this.isLoading = false;
         if (r.length > 0) {
           this.searchResult = r[0];
         }
         else {
           this.noResultsFound = true;
         }
-        this.searchQuery = '';
         this.onPartnerSelectedEvent.emit(this.searchResult);
       },
       (e) => {
-        this.searchQuery = '';
+        this.isLoading = false;
         this.noResultsFound = true;
         this.onPartnerSelectedEvent.emit(this.searchResult);
-
       }
     );
   }

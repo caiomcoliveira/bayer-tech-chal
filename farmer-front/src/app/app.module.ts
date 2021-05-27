@@ -11,6 +11,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     MainPageComponent
   ],
   imports: [
+    MatProgressBarModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
