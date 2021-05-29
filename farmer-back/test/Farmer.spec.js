@@ -17,6 +17,8 @@ describe('Farmer API', () => {
                 ((err, res) => {
                     expect(res.status).to.equal(500);
                     expect(res.body).to.be.a('object');
+                    expect(err).to.equal(null);
+
                 }),
             );
         });
@@ -39,6 +41,8 @@ describe('Farmer API', () => {
                     expect(res.status).to.equal(200);
                     expect(res.body).to.be.a('object');
                     expect(res.body.name).to.equal('Alex Dev');
+                    expect(err).to.equal(null);
+
                 })
             )
         })
@@ -54,6 +58,8 @@ describe('Farmer API', () => {
                     expect(res.status).to.equal(200);
                     expect(res.body).to.be.a('array');
                     expect(res.body.length).to.gt(0);
+                    expect(err).to.equal(null);
+
                 })
             );
         });
@@ -63,6 +69,8 @@ describe('Farmer API', () => {
                 ((err, res) => {
                     expect(res.status).to.equal(500);
                     expect(res.body).to.be.a('object');
+                    expect(err).to.equal(null);
+
                 })
             );
         });
@@ -75,6 +83,8 @@ describe('Farmer API', () => {
                     expect(res.status).to.equal(200);
                     expect(res.body).to.be.a('array');
                     expect(res.body.length).to.gt(0);
+                    expect(err).to.equal(null);
+
                 })
             );
         });
@@ -87,6 +97,7 @@ describe('Farmer API', () => {
                     expect(res.status).to.equal(200);
                     expect(res.body).to.be.a('array');
                     expect(res.body.length).to.gt(0);
+                    expect(err).to.equal(null);
                 })
             );
         });

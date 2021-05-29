@@ -16,7 +16,7 @@ router.route('/')
             }
             const fc = new FarmerController();
             const farmers = await fc.searchByDocumentNumberOrName(req.query.search);
-            res.send(farmers).status(200);
+            res.status(200).send(farmers);
         } catch (e) {
             res.status(500).send(e);
         }
@@ -25,7 +25,7 @@ router.route('/')
         try {
             const fc = new FarmerController();
             const f = await fc.createFarmer(req.body);
-            res.send(f).status(200);
+            res.status(200).send(f);
         } catch (e) {
             res.status(500).send(e);
         }
