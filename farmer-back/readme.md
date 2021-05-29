@@ -8,6 +8,7 @@ On this README you will find information about the backend (express.js), some fe
 ## How to run it
 - To run the backend application just run the command:
 ```
+npm install
 npm start
 ```
 The application will start on http://localhost:3000

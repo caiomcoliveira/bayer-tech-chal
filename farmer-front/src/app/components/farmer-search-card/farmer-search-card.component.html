@@ -33,7 +33,7 @@
       </section>
     </ng-container>
     <ng-template #noResult>
-      <h2 id="no-results-found">No results found.</h2>
+      <h2 id="no-results-found"> {{ isError ? 'Something went wrong, check your connection' : 'No results found.'}}</h2>
     </ng-template>
   </mat-card-content>
 </mat-card>

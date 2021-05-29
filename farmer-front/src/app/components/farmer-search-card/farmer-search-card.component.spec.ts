@@ -97,9 +97,10 @@ describe('FarmerSearchCardComponent', () => {
     expect(component.noResultsFound).toBe(true);
     expect(component.searchResult).toBeFalsy();
     expect(component.onPartnerSelectedEvent.emit).toHaveBeenCalled();
+    expect(component.isError).toBe(true);
 
     fixture.detectChanges();
     const text = fixture.debugElement.query(By.css('#no-results-found')).nativeElement;
-    expect(text.innerHTML).toContain('No results found');
+    expect(text.innerHTML).toContain('went wrong');
   }));
 });

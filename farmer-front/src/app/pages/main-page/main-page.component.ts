@@ -14,7 +14,8 @@ export class MainPageComponent {
 
 
   public mySelectedFarmer(event: Farmer): void {
-    console.log(event);
+    // TODO: Here you do something with the output of the component.
+    // console.log(event);
   }
 
 }

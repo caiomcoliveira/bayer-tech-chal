@@ -10,6 +10,7 @@ I've left the default instructions from Angular CLI to run the project, but I wi
 
 - To run the frontend application just run the command:
 ```
+npm install
 npm start
 ```
 The application will start on http://localhost:4200
@@ -34,6 +35,8 @@ Knowing that I didn't have to follow the card mockup by the letter, I did my int
 <b>You can search a farmer by document or name by inputing on the "Name or Doc#" field. You can search by pressing ENTER or by clicking on the search icon.</b> Note: You can see the list of farmers on the backend readme.
 
 If more than one farmer is found, the first one is returned.
+
+A delay of 500ms was added to the request only to simulate the loading, it can be removed if necessary.
 
 ## Tests 
 The unit tests were done with Karma and Jasmine, trying to achieve 100% coverage. You can run it by executing:

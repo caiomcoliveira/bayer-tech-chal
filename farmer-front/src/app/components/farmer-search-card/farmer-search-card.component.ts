@@ -16,6 +16,7 @@ export class FarmerSearchCardComponent {
   public searchQuery: string;
   public noResultsFound: boolean = false;
   public isLoading: boolean = false;
+  public isError: boolean = false;
 
   constructor() { }
 
@@ -24,6 +25,7 @@ export class FarmerSearchCardComponent {
     this.noResultsFound = false;
     this.searchResult = null;
     this.isLoading = true;
+    this.isError = false;
     this.farmerSearchAbstractProvider.searchFarmers({ search: this.searchQuery }).then(
       (r) => {
         this.isLoading = false;
@@ -36,6 +38,7 @@ export class FarmerSearchCardComponent {
         this.onPartnerSelectedEvent.emit(this.searchResult);
       },
       (e) => {
+        this.isError = true;
         this.isLoading = false;
         this.noResultsFound = true;
         this.onPartnerSelectedEvent.emit(this.searchResult);
