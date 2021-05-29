@@ -8,7 +8,8 @@ class Farmer extends Model {}
 
 Farmer.init({
     name: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
     sequelize,

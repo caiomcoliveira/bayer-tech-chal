@@ -13,8 +13,7 @@ chai.use(chaiHttp);
 describe('Farmer API', () => {
     describe('POST - FARMERS', () => {
         it('Should return error creating farmer', () => {
-            let f = {}
-            chai.request(server).post('/api/farmers').send(f).end(
+            chai.request(server).post('/api/farmers').send("").end(
                 ((err, res) => {
                     expect(res.status).to.equal(500);
                     expect(res.body).to.be.a('object');
@@ -55,6 +54,15 @@ describe('Farmer API', () => {
                     expect(res.status).to.equal(200);
                     expect(res.body).to.be.a('array');
                     expect(res.body.length).to.gt(0);
+                })
+            );
+        });
+
+        it('Should return error without search param', () => {
+            chai.request(server).get('/api/farmers').end(
+                ((err, res) => {
+                    expect(res.status).to.equal(500);
+                    expect(res.body).to.be.a('object');
                 })
             );
         });

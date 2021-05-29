@@ -12,6 +12,9 @@ class FarmerController {
      */
     async searchByDocumentNumberOrName(search) {
         let farmers = []; 
+        if(search && !search.match(/[a-zA-Z]/g)){ // Removing extra characters if it contains numbers.
+            search = search.replace(/\D+/g, "");
+        }
         if(!isNaN(+search)){ // Querying by document number
             farmers = await Farmer.findAll({
                 include: [Address, {

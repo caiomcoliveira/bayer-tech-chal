@@ -9,10 +9,12 @@ class Document extends Model {}
 
 Document.init({
     documentNumber: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
     },
     documentType: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
     },        
 }, {
     sequelize,
