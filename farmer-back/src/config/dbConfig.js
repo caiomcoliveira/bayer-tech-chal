@@ -1,9 +1,8 @@
 const { Sequelize } = require('sequelize');
 
-// Option 2: Passing parameters separately (sqlite)
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: './mockdb.sqlite'
+  storage: process.env.NODE_ENV == 'test' ? './testdb.sqlite' : './mockdb.sqlite'
 });
 
 

@@ -8,7 +8,7 @@ app.use(express.json());
 app.use('/api/farmers', farmersRoute);
 const port = 3000;
 
-sequelize.sync({force: true}).then(
+sequelize.sync().then(
     ()=>{
         console.log("DB Running")
     }
@@ -17,6 +17,7 @@ sequelize.sync({force: true}).then(
 
 
 
-app.listen(port, () => {
+const server = app.listen(port,  () => {    
     console.log(`Example app listening at http://localhost:${port} with CORS`);
-})
+});
+module.exports = server;
