@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { of } from 'rxjs';
-import { mockFarmer1 } from 'src/app/mocks/mocks';
+import { mockFarmer1, mockFarmer2 } from 'src/app/mocks/mocks';
 import { FarmerSearchProvider } from 'src/app/services/implementations/farmer-search.provider';
 
 import { FarmerSearchCardComponent } from './farmer-search-card.component';
@@ -44,7 +44,7 @@ describe('FarmerSearchCardComponent', () => {
 
   it('should search and find return a farmers information', fakeAsync(() => {
 
-    spyOn(component.farmerSearchAbstractProvider, 'searchFarmers').and.returnValue(Promise.resolve([mockFarmer1]));
+    spyOn(component.farmerSearchAbstractProvider, 'searchFarmers').and.returnValue(Promise.resolve([mockFarmer1, mockFarmer2]));
     spyOn(component.partnerSelectedEvent, 'emit').and.callFake(() => null);
 
 
