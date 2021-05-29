@@ -73,4 +73,4 @@ const mockFarmer5 = {
     name: 'Alex Dev'
 }
 
-module.exports.allFarmers = [mockFarmer1,mockFarmer2,mockFarmer3,mockFarmer4, mockFarmer5];
+module.exports.allFarmers = [mockFarmer1, mockFarmer2, mockFarmer3, mockFarmer4, mockFarmer5];

@@ -4,7 +4,7 @@ const sequelize = require("../config/dbConfig");
 const Address = require("./Address");
 const Document = require("./Document");
 
-class Farmer extends Model {}
+class Farmer extends Model { }
 
 Farmer.init({
     name: {

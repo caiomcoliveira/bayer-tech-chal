@@ -1,12 +1,12 @@
-
 process.env.NODE_ENV = 'test'; // changing it so the DB is created in a different instance.
 
 const {
-    expect
+    expect,
 } = require('chai');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../index');
+
 chai.use(chaiHttp);
 
 
@@ -17,8 +17,8 @@ describe('Farmer API', () => {
                 ((err, res) => {
                     expect(res.status).to.equal(500);
                     expect(res.body).to.be.a('object');
-                })
-            )
+                }),
+            );
         });
         it('Should create a farmer successfuly', () => {
             let f = {

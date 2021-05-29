@@ -11,11 +11,11 @@ class FarmerController {
      * @returns filtered list of farmers, or all if search is falsy
      */
     async searchByDocumentNumberOrName(search) {
-        let farmers = []; 
-        if(search && !search.match(/[a-zA-Z]/g)){ // Removing extra characters if it contains numbers.
+        let farmers = [];
+        if (search && !search.match(/[a-zA-Z]/g)) { // Removing extra characters if it contains numbers.
             search = search.replace(/\D+/g, "");
         }
-        if(!isNaN(+search)){ // Querying by document number
+        if (!isNaN(+search)) { // Querying by document number
             farmers = await Farmer.findAll({
                 include: [Address, {
                     model: Document,
@@ -29,9 +29,11 @@ class FarmerController {
         } else { // querying by name, will return all if no search was inputed
             farmers = await Farmer.findAll({
                 where: {
-                    name: {[Op.like]: `%${search}%`} // If it was PG , I could use ILIKE for case insensitive
+                    name: {
+                        [Op.like]: `%${search}%`
+                    } // If it was PG , I could use ILIKE for case insensitive
                 },
-                include: [Address,  Document]
+                include: [Address, Document]
             });
         }
         return farmers;

@@ -5,7 +5,7 @@ const {
 
 const sequelize = require("../config/dbConfig");
 
-class Document extends Model {}
+class Document extends Model { }
 
 Document.init({
     documentNumber: {
@@ -15,7 +15,7 @@ Document.init({
     documentType: {
         type: DataTypes.STRING,
         allowNull: false
-    },        
+    },
 }, {
     sequelize,
     modelName: 'document'

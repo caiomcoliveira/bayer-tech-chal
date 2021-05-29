@@ -5,7 +5,7 @@ const {
 
 const sequelize = require("../config/dbConfig");
 
-class Address extends Model {}
+class Address extends Model { }
 
 Address.init({
     state: {
@@ -15,7 +15,7 @@ Address.init({
     street: {
         type: DataTypes.STRING,
         allowNull: false
-    },    
+    },
     address: {
         type: DataTypes.STRING,
         allowNull: false
@@ -23,7 +23,7 @@ Address.init({
     country: {
         type: DataTypes.STRING,
         allowNull: false
-    },    
+    },
 }, {
     sequelize,
     modelName: 'address'
