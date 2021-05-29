@@ -22,7 +22,7 @@ export class FarmerSearchProvider implements FarmerSearchAbstractProvider {
    * @returns a promise with a list of farmers
    */
   public searchFarmers(params: FarmerSearchParams): Promise<Farmer[]> {
-    return this.httpClient.get<Farmer[]>(this.serviceUrl, { params: { ...params } }).pipe(delay(1000)).toPromise();
+    return this.httpClient.get<Farmer[]>(this.serviceUrl, { params: { ...params } }).pipe(delay(500)).toPromise();
   }
 
 }

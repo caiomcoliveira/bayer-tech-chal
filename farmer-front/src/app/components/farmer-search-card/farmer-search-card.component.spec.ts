@@ -68,6 +68,8 @@ describe('FarmerSearchCardComponent', () => {
     component.searchQuery = 'Mock';
     component.search();
     tick();
+    fixture.detectChanges();
+
 
     expect(component.farmerSearchAbstractProvider.searchFarmers).toHaveBeenCalled();
     expect(component.noResultsFound).toBe(true);
@@ -88,6 +90,8 @@ describe('FarmerSearchCardComponent', () => {
     component.searchQuery = 'Mock';
     component.search();
     tick();
+    fixture.detectChanges();
+
 
     expect(component.farmerSearchAbstractProvider.searchFarmers).toHaveBeenCalled();
     expect(component.noResultsFound).toBe(true);
