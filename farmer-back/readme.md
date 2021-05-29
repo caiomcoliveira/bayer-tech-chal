@@ -52,3 +52,5 @@ The body should contain a farmer object, with its address and document.
 {name: 'example', address: {address: 'aaa', street: 'bb', country: 'cc', state: 'dd'}, document: {documentNumber: '11111', documentType: 'F'}}.
 
 Since this endpoint wasn't required, I didn't do any validations on it.
+
+Cors package was used to make it easier to run the applications without having to rely on proxies.
