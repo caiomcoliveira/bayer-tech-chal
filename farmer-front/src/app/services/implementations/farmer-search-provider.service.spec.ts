@@ -20,10 +20,11 @@ describe('FarmerSearchProvider', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return farmer list', ()=> {
-    let http = TestBed.inject(HttpClient);
+  it('should return farmer list', () => {
+    const http = TestBed.inject(HttpClient);
     spyOn(http, 'get').and.returnValue(of([mockFarmer1]));
-    service.searchFarmers({search: 'mock'});
+    service.searchFarmers({ search: 'mock' });
     expect(http.get).toHaveBeenCalled();
-  })
+  });
+
 });

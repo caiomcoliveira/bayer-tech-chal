@@ -22,7 +22,8 @@ describe('MainPageComponent', () => {
         MatInputModule,
         NoopAnimationsModule,
         FormsModule,
-        MatIconModule,],
+        MatIconModule
+      ],
       providers: [{ provide: FarmerSearchProvider, useValue: {} }]
 
     })
@@ -42,5 +43,6 @@ describe('MainPageComponent', () => {
   it('Should call mySelectFarmer', () => {
     component.mySelectedFarmer(mockFarmer1);
     expect(true).toBe(true); // TODO: Change when the mySelectedFarmer do something
-  })
+  });
+
 });

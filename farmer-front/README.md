@@ -38,6 +38,8 @@ If more than one farmer is found, the first one is returned.
 
 A delay of 500ms was added to the request only to simulate the loading, it can be removed if necessary.
 
+The output property shouldn't be prefixed with "on", according to linting rules, since it would result on a event called "on-onEvent".
+
 ## Tests 
 The unit tests were done with Karma and Jasmine, trying to achieve 100% coverage. You can run it by executing:
 

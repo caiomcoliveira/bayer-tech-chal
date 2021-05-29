@@ -26,7 +26,7 @@ describe('FarmerSearchCardComponent', () => {
         NoopAnimationsModule
       ],
       providers: [
-        {provide: FarmerSearchProvider, useValue: {searchFarmers: ()=>null}}
+        { provide: FarmerSearchProvider, useValue: { searchFarmers: () => null } }
       ]
     }).compileComponents();
   });
@@ -45,7 +45,7 @@ describe('FarmerSearchCardComponent', () => {
   it('should search and find return a farmers information', fakeAsync(() => {
 
     spyOn(component.farmerSearchAbstractProvider, 'searchFarmers').and.returnValue(Promise.resolve([mockFarmer1]));
-    spyOn(component.onPartnerSelectedEvent, 'emit').and.callFake(()=>null);
+    spyOn(component.partnerSelectedEvent, 'emit').and.callFake(() => null);
 
 
     component.searchQuery = 'Mock';
@@ -56,13 +56,13 @@ describe('FarmerSearchCardComponent', () => {
     expect(component.farmerSearchAbstractProvider.searchFarmers).toHaveBeenCalled();
     expect(component.noResultsFound).toBe(false);
     expect(component.searchResult).toBeDefined();
-    expect(component.onPartnerSelectedEvent.emit).toHaveBeenCalled();
+    expect(component.partnerSelectedEvent.emit).toHaveBeenCalled();
 
   }));
 
-  it('Should show no results found when service returns empty array', fakeAsync(()=>{
+  it('Should show no results found when service returns empty array', fakeAsync(() => {
     spyOn(component.farmerSearchAbstractProvider, 'searchFarmers').and.returnValue(Promise.resolve([]));
-    spyOn(component.onPartnerSelectedEvent, 'emit').and.callFake(()=>null);
+    spyOn(component.partnerSelectedEvent, 'emit').and.callFake(() => null);
 
 
     component.searchQuery = 'Mock';
@@ -74,17 +74,17 @@ describe('FarmerSearchCardComponent', () => {
     expect(component.farmerSearchAbstractProvider.searchFarmers).toHaveBeenCalled();
     expect(component.noResultsFound).toBe(true);
     expect(component.searchResult).toBeFalsy();
-    expect(component.onPartnerSelectedEvent.emit).toHaveBeenCalled();
+    expect(component.partnerSelectedEvent.emit).toHaveBeenCalled();
 
     fixture.detectChanges();
     const text = fixture.debugElement.query(By.css('#no-results-found')).nativeElement;
     expect(text.innerHTML).toContain('No results found');
   }));
 
-  
-  it('Should show no results found when service fails', fakeAsync(()=>{
+
+  it('Should show no results found when service fails', fakeAsync(() => {
     spyOn(component.farmerSearchAbstractProvider, 'searchFarmers').and.returnValue(Promise.reject([]));
-    spyOn(component.onPartnerSelectedEvent, 'emit').and.callFake(()=>null);
+    spyOn(component.partnerSelectedEvent, 'emit').and.callFake(() => null);
 
 
     component.searchQuery = 'Mock';
@@ -96,7 +96,7 @@ describe('FarmerSearchCardComponent', () => {
     expect(component.farmerSearchAbstractProvider.searchFarmers).toHaveBeenCalled();
     expect(component.noResultsFound).toBe(true);
     expect(component.searchResult).toBeFalsy();
-    expect(component.onPartnerSelectedEvent.emit).toHaveBeenCalled();
+    expect(component.partnerSelectedEvent.emit).toHaveBeenCalled();
     expect(component.isError).toBe(true);
 
     fixture.detectChanges();

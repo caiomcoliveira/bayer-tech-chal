@@ -11,12 +11,12 @@ import { FarmerSearchAbstractProvider } from 'src/app/services/abstracts/FarmerS
 export class FarmerSearchCardComponent {
 
   @Input() farmerSearchAbstractProvider: FarmerSearchAbstractProvider;
-  @Output() onPartnerSelectedEvent = new EventEmitter<Farmer>();
+  @Output() partnerSelectedEvent = new EventEmitter<Farmer>();
   public searchResult: Farmer;
   public searchQuery: string;
-  public noResultsFound: boolean = false;
-  public isLoading: boolean = false;
-  public isError: boolean = false;
+  public noResultsFound = false;
+  public isLoading = false;
+  public isError = false;
 
   constructor() { }
 
@@ -35,13 +35,13 @@ export class FarmerSearchCardComponent {
         else {
           this.noResultsFound = true;
         }
-        this.onPartnerSelectedEvent.emit(this.searchResult);
+        this.partnerSelectedEvent.emit(this.searchResult);
       },
       (e) => {
         this.isError = true;
         this.isLoading = false;
         this.noResultsFound = true;
-        this.onPartnerSelectedEvent.emit(this.searchResult);
+        this.partnerSelectedEvent.emit(this.searchResult);
       }
     );
   }
